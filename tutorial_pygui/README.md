@@ -1,7 +1,7 @@
-== SignalAnalyzer ==
+# == SignalAnalyzer ==
 
-# Toolchain
+## Toolchain
 PyGUI
 
-# Architecture
+## Architecture
 Model-View-Controller 
