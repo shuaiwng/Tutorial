@@ -1,0 +1,76 @@
+<html>
+  <head><title>Hello World</title></head>
+  <body>
+    <a id="mylink" href="http://mysite.com">Click me</a><br>
+    <script type="text/javascript">
+      url = document.links.mylink.href 
+      document.write("Hello World from JavaScript!\n The URL is "+url)
+      warning()
+
+      string = "The quick brown fox jumps over the lazy dog"
+      with(string){
+        document.write("<br><br>The string is "+ length + " characters<br>")
+        document.write("In upper case it's: " + toUpperCase())
+      }
+
+      function warning(){
+        alert("Warning: proceed to the website?")
+      }
+
+      function Fighter(model, name, power){
+        this.model = model
+        this.name = name
+        this.power = power
+
+        this.showFighter = function(){
+          document.write("<br>")
+          document.write("Model: " + this.model+ "<br>")
+          document.write("Name: " + this.name+ "<br>")
+          document.write("Power: " + this.power + "<br>")
+        }
+      }
+      
+      details = new Fighter("Mars", "Jupter", "Newton") 
+      details.greeting = "Greetings" 
+
+      document.write(details.showFighter())
+      document.write(details.greeting)
+
+      document.write("   Please trim me      ".trim()+"<br>")
+
+
+      // Array
+      numbers = Array("One", "Two", "Three")
+      for (i=0; i<numbers.length; ++i)
+        document.write("Element "+i+" = "+numbers[i]+"<br>")
+      
+      pets = ["Cat", "Dog", "Rabbit", "Hamster"]
+      document.write(pets.join()  + "<br>")
+      document.write(pets.join(' ')  + "<br>")
+      document.write(pets.join(' : ')  + "<br>")
+
+      // sort
+      sports = ["Football", "Tennis", "Baseball", "Hockey"]
+      sports.sort()
+      document.write(sports + "<br>")
+
+      sports = ["Football", "Tennis", "Baseball", "Hockey"]
+      sports.sort().reverse()
+      document.write(sports + "<br>")
+
+      numbers = [7, 25, 11, 138] 
+      numbers.sort(function(a,b){return a-b})
+      document.write(numbers + "<br>")
+
+      numbers = [7, 25, 11, 138] 
+      numbers.sort(function(a,b){return b-a})
+      document.write(numbers + "<br>")
+
+
+    </script>
+    <noscript>
+      Your browser doesn't support or has disabled JavaScript
+    </noscript>
+  </body>
+</html>
+

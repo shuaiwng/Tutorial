@@ -1,0 +1,90 @@
+Command Action
+===================
+ALTER   ->  Alter a data or table
+BACKUP  ->  Back up a table
+\c      ->  Cancel input
+CREATE  ->  Create a database
+DELETE  ->  Delete a row from a table
+DESCRIBE    ->  Describe a table's columns
+DROP    ->  Delete a database or table
+EXIT (Ctrl-C)   ->  Exit
+GRANT   ->  Change user privileges
+HELP (\h,\?)    ->  Display help
+INSERT  ->  Insert data
+LOCK    ->  Lock table(s)
+QUIT (\q)   ->  Same as EXIT
+RENAME  ->  Rename a table
+SHOW    ->  List details about an object
+SOURCE  ->  Execute a file
+STATUS (\s) ->  Display the current status
+TRUNCATE    ->  Empty a table
+UNLOCK  ->  Unlock table(s)
+UPDATA  ->  Update an existing record
+USE     ->  Use a database
+
+== log in as root ==
+mysql -u root -p
+
+== create db and use it ==
+CREATE DATABASE xyz;
+USE xyz;
+
+== create users, set privilege ==
+GRANT ALL ON mydatabase.* TO 'username'@'localhost'
+IDENTIFIED By 'mypassword';
+
+== test user accessibility ==
+quit
+mysql -u usernmae -p
+
+== create a table ==
+CREATE TABLE classics (
+author VARVHAR(128),
+title VARVHAR(128),
+type VARVHAR(16),
+year CHAR(4)) ENGINE InnoDB;
+
+== list table ==
+SHOW tables;
+DESCRIBE classics;
+
+== add data into table ==
+INSERT INTO classics(author,title,category, year)
+VALUES('Mark Twain','The Adventures of Tom Sawyer','Fiction','1897');
+
+== list table contents ==
+SELECT * FROM classics;
+
+== rename table ==
+ALTER TABLE classics RENAME pre1900;
+
+== modify table ==
+ALTER TABLE classics MODIFY year SMALLINT;
+ALTER TABLE classics Add pages SMALLINT UNSIGNED;
+ALTER TABLE classics CHANGE type category VARCHAR(16);
+
+== remove a column ==
+ALTER TABLE classics DROP pages;
+
+== delete a row ==
+delete from mytable where myusername='abcd';
+
+== match ==
+alter table classics add FULLTEXT(author,title);
+SELECT author, title From classics
+WHERE MATCH(author,title) AGAINST('tom sawyer');
+
+== modify content in field ==
+UPDATE classics SET category="non-Fiction" WHERE author="Mark Twain";
+
+== Order ==
+SELECT author,title FROM classics ORDER By author;
+
+
+== join two tables together ==
+SELECT name,author,title FROM customers,classics
+WHERE customers.isbn=classics.isbn;
+
+== DROP (Delete) ==
+DROP Table tablename;
+
