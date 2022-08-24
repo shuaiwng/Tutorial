@@ -16,8 +16,7 @@ int main(int argc, char ** argv)
     SDL_Surface * image = IMG_Load("./resource/rocket.png");
     SDL_Texture * texture = SDL_CreateTextureFromSurface(renderer, image);
  
-    SDL_SetRenderDrawColor(renderer, 50, 70, 150, 255);
-    SDL_RenderClear(renderer);
+  	SDL_SetRenderDrawColor(renderer, 50, 70, 150, 255);
 
     while (!quit)
     {
@@ -30,14 +29,13 @@ int main(int argc, char ** argv)
                     break;
             }
         }
- 
 
         Uint32 ticks = SDL_GetTicks();	
         Uint32 sprite = (ticks / 100) % 5;
 
         SDL_Rect srcrect = { sprite * 64, 0, 64, 64 };
         SDL_Rect dstrect = { 10, 10, 64, 64 };
- 	
+
         SDL_RenderClear(renderer);
         SDL_RenderCopy(renderer, texture, &srcrect, &dstrect);
         SDL_RenderPresent(renderer);
